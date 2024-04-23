@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "api": "json-server ./api/data.json -p 5050 -w",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "compodoc:build": "compodoc -p tsconfig.doc.json",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
+    "compodoc:serve": "compodoc -s"
   },
   "private": true,
   "dependencies": {
@@ -23,9 +27,11 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
+    "json-server": "^1.0.0-alpha.23",
     "@angular-devkit/build-angular": "^17.0.3",
     "@angular/cli": "^17.0.3",
     "@angular/compiler-cli": "^17.0.0",
+    "@compodoc/compodoc": "^1.1.23",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",

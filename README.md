@@ -1,6 +1,39 @@
-# NttFirst
+# Project : NttFirst
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+
+## Mise en oeuvre:
+
+* Démarrer le serveur : `npm run start`
+* Build : `npm run build`
+* Lancer le mock d'API REST : `npm run api`
+* Générer la documentation : `npm run compodoc:build-and-serve`
+
+## Project Scope:
+
+> Projet éducatif dans le cadre d'une formation Angular.
+
+## Fondamentaux Angular :
+
+> Angular permet la structuration d'un projet d'apllication web, dans le but de préserver la simplicité du code.
+
+Le concept central est le **Component** une unité de l'interface utilisateur encapsulant (HTML,CSS et JavaScript exprimé en TypeScript.)
+
+**Angular offre 5 concepts fondamentaux**
+
+* `@NgModule`     - Organisation du code (Angular).
+  * `@Component`  - Unité de l'interface utilisateur.
+  * `@Directive`  - Native ou personnalisées, enrichissant la vue (les composants).
+  * `@Pipe`       - Règle de transformation avant présentation (affichage).
+* `@Injectable`   - Aussi appelés services, pour le code logique non exclusif à la présentation.
+
+**Décorateurs (Annotations)**
+
+> Relation entre le code produit et Angular (compiler -> runtime)
+
+*Il y a 19 décorateurs préfixé de `@`*
+
+# Commandes utiles :
 
 ## Development server
 
