@@ -102,6 +102,29 @@
 <blockquote>
 <p>Projet éducatif dans le cadre d&#39;une formation Angular.</p>
 </blockquote>
+<h2>Structure Applicative:</h2>
+<blockquote>
+<p>L&#39;apllication est orgénisée en modules, tesl que:</p>
+</blockquote>
+<ul>
+<li><code>app</code> - (Module) Boostrap Module<ul>
+<li><code>core</code> - (Module) La logique applicative centralisée<ul>
+<li><em>services/</em></li>
+<li><em>interfaces/</em> - Contient la description structurelle des données manipulées et/ou des patterns applicatives.</li>
+</ul>
+</li>
+<li><code>views</code> - (Module) Les composant d&#39;affichage généraux (page)</li>
+<li><code>features</code> - (Répertoire) Un ou plusieurs composants assurant un fonctionnalité.<ul>
+<li>Chaque feature aura son propre module.</li>
+<li>Chaque feature aura son propre routing module.</li>
+<li>Une feature peut utiliser un service <em>core</em> et ou <em>spécifique</em></li>
+<li>Une feature peut utiliser des directives et pipe <em>spécifique</em></li>
+</ul>
+</li>
+<li><code>ui</code> - (Module) Contient les composants de présentation et directives et pipes réutilisables.</li>
+</ul>
+</li>
+</ul>
 <h2>Fondamentaux Angular :</h2>
 <blockquote>
 <p>Angular permet la structuration d&#39;un projet d&#39;apllication web, dans le but de préserver la simplicité du code.</p>
@@ -126,7 +149,19 @@
 <h2>Development server</h2>
 <p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The application will automatically reload if you change any of the source files.</p>
 <h2>Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+<p>Run <code>ng generate component component-name</code> to generate a new component. </p>
+<p>You can also use :
+<code>ng generate SCHEMATIC PATH/NAME [options]</code></p>
+<p><code>ng g SCHEMATIC PATH/NAME [options]</code></p>
+<p><code>ng generate directive | pipe | service | class | guard | interface | enum | module</code></p>
+<p>Par exemple pour générer un module de  <em>feature</em></p>
+<p><code>ng g m features/MODULE_NAME --routing</code></p>
+<ul>
+<li>Angualr generate module <code>ng g m </code></li>
+<li>path  <code>features/</code></li>
+<li>name <code>MODULE_NAME</code></li>
+<li>option <code>--routing</code> (génère aussi un module de routing)</li>
+</ul>
 <h2>Build</h2>
 <p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory.</p>
 <h2>Running unit tests</h2>

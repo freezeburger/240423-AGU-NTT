@@ -1,0 +1,89 @@
+<header>
+  <h1>Users</h1>
+</header>
+
+
+<main class="container-fluid">
+
+  <!-- <div class="alert alert-success m-2 mb-3" role="alert"> -->
+  <!-- <div class="alert alert-{{alertMessage.level}} m-2 mb-3" role="alert"> -->
+  <!-- <div [class]=" 'alert alert-'+ alertMessage.level +' m-2 mb-3' " role="alert"> -->
+
+  <!-- <div class="alert m-2 mb-3" [ngClass]=" 'alert-' + alertMessage.level " role="alert"> -->
+
+  <!-- <div
+    class="alert m-2 mb-3"
+    [ngClass]="{
+      'alert-success': alertMessage.level === 'success',
+      'alert-danger': alertMessage.level === 'danger',
+      'alert-primary': alertMessage.level === 'primary',
+      'alert-warning': alertMessage.level === 'warning'
+    }"
+    role="alert"> -->
+  <div
+    class="alert m-2 mb-3"
+    appEmphasis
+    [ngClass]=" alertMessage.level | toCssLevel " role="alert">
+    {{ alertMessage.content }}
+  </div>
+
+  <!-- <button
+    class="btn m-2"
+    [ngClass]=" alertMessage.level | toCssLevel:'btn' "
+    >
+    {{ alertMessage.content }}
+  </button> -->
+
+  <div class="row p-3">
+
+    <section class="col">
+      <h2>List of users:</h2>
+      <code>{{searchField.value}}</code>
+
+      <!-- <input class="form-control"  [(ngModel)]="searchTerm"> -->
+      <input class="form-control" [formControl]="searchField">
+      <hr>
+
+      <ng-container *ngIf="( filteredCollection$ | async ) as userList">
+
+        <p *ngIf="!userList || !userList.length"> Pas de données. Chargement en ours...</p>
+
+        <code>{{selectedUser?.name}}</code>
+
+        <ul class="list-group">
+
+          <li class="list-group-item"
+              *ngFor="let user of userList"
+              appEmphasis
+              (click)="selectUser(user)">
+
+            <div class="d-flex">
+              <img src="https://ui-avatars.com/api/?name={{ user.name }}" alt="avatar" >
+
+              <div class="p-2">
+                <h5>{{ user.name }}</h5>
+                <span class="badge text-bg-dark">{{ user.phone }}</span>
+              </div>
+            </div>
+
+            <div *ngIf="user === selectedUser" >
+              <pre appCopyToClipboard>
+                {{ user.address | toPrintableAddress }}
+              </pre>
+            </div>
+
+          </li>
+
+        </ul>
+
+      </ng-container>
+    </section>
+
+    <section class="col">
+      <h2>Add User:</h2>
+      <hr>
+    </section>
+
+  </div>
+
+</main>

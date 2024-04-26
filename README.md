@@ -13,6 +13,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 > Projet éducatif dans le cadre d'une formation Angular.
 
+## Structure Applicative:
+
+> L'apllication est orgénisée en modules, tesl que:
+* `app` - (Module) Boostrap Module
+  * `core` - (Module) La logique applicative centralisée
+    * *services/*
+    * *patterns/*   - Patterns applicatifs.
+    * *interfaces/* - Contient la description structurelle des données manipulées et/ou des patterns applicatives.
+  * `views` - (Module) Les composant d'affichage généraux (page)
+  * `features` - (Répertoire) Un ou plusieurs composants assurant un fonctionnalité.
+      * Chaque feature aura son propre module.
+      * Chaque feature aura son propre routing module.
+      * Une feature peut utiliser un service *core* et ou *spécifique*
+      * Une feature peut utiliser des directives et pipe *spécifique*
+  * `ui` - (Module) Contient les composants de présentation et directives et pipes réutilisables.
+
+## Pattern Applicatifs:
+
+> Tous les services de présentation (vers les composants) doivent implémenter le pattern `ReactiveService`
+
 ## Fondamentaux Angular :
 
 > Angular permet la structuration d'un projet d'apllication web, dans le but de préserver la simplicité du code.
@@ -41,7 +61,22 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component. 
+
+You can also use :
+`ng generate SCHEMATIC PATH/NAME [options]`
+
+`ng g SCHEMATIC PATH/NAME [options]`
+
+`ng generate directive | pipe | service | class | guard | interface | enum | module`
+
+Par exemple pour générer un module de  *feature*
+
+`ng g m features/MODULE_NAME --routing`
+* Angualr generate module `ng g m `
+* path  `features/`
+* name `MODULE_NAME`
+* option `--routing` (génère aussi un module de routing)
 
 ## Build
 

@@ -1,0 +1,17 @@
+
+
+<p>List of users:</p>
+
+<ng-container *ngIf="(userService.data$ | async ) as userList">
+
+  <p *ngIf="!userList || !userList.length"> Pas de données. Chargement en cours...</p>
+
+  <ul>
+    <li *ngFor="let user of userList">
+      {{ user.name + ' - ' + user.phone }}
+    </li>
+  </ul>
+
+</ng-container>
+
+

@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root{
+  --color-main: cornflowerblue;
+  --color-critical: crimson;
+  --base-font-size:16px;
+}
+
+/* reset CSS */
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  padding:0;
+  font-size: var(--base-font-size);
+  font-family: Arial;
+}
+
+section, header, main, aside, footer {
+ display: block;
+}
+
+.emphasis{
+  transform: scale(1);
+  transition: transform .15s ease-out;
+
+  div{
+    position:relative;
+    left:0;
+    transition: left .15s ease-out;
+  }
+
+  &:hover{
+    transform: scale(1.1);
+    div{
+      left:20px;
+    }
+  }
+
+}
+
+.emphasis-alert{
+  position:relative;
+  top:0;
+  transition: top .15s ease-out;
+
+  &:hover{
+    top:-10px;
+  }
+}
