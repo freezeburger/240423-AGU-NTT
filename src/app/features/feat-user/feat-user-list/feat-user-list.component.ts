@@ -9,6 +9,4 @@ import { UserService } from '../user.service';
 export class FeatUserListComponent {
 
   public userService = inject(UserService);
-
-
 }

@@ -18,10 +18,16 @@ export class UserService implements ReactiveService< User[], UserCommand > {
     private http:HttpClient
   ) {
     this.load()
+    if (this.data$.value.length === 0) {
+      this.load();
+    }
   }
 
   data$ = new BehaviorSubject<User[]>([]);
 
+  //implement overlaod base on UserCommand
+  process(command: { type: UserCommand.CREATE_REQUEST,payload:User}): void;
+  process(command: { type: UserCommand.LOAD_REQUEST,payload:null}): void;
   process(command: { type: UserCommand; payload: unknown; }): void {
     throw new Error('Method not implemented.');
   }
