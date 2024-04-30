@@ -15,7 +15,6 @@ export class CopyToClipboardDirective {
 
   private element = inject(ElementRef<HTMLElement>)
 
-  // TODO Cycle de Vie
   ngOnInit(){
     console.log(this.element)
   }
@@ -26,6 +25,5 @@ export class CopyToClipboardDirective {
     this.cursor = 'context-menu';
     this.backgroundColor = 'var(--color-main)';
   }
-
 
 }

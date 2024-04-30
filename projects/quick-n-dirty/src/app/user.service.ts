@@ -3,7 +3,6 @@ import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ReactiveService } from '../../../../types/patterns/reactive-service';
 import { User } from '../../../../types/interfaces/user.interface';
-import { DevtoolsConnector } from './devtools.middleware';
 import { RSDevtoolsConnector } from './devtools.decorator';
 
 export enum UserCommand {
@@ -16,12 +15,9 @@ export enum UserCommand {
 @Injectable()
 export class UserService implements ReactiveService< User[], UserCommand >  {
 
-  //private http = inject(HttpClient)
-
   constructor(
     private http:HttpClient
   ) {
-    //  this.load()
   }
 
   data$ = new BehaviorSubject<User[]>([]);
