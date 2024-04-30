@@ -16,7 +16,6 @@ export class UserService implements ReactiveService< User[], UserCommand > {
   constructor(
     private http:HttpClient
   ) {
-    this.load()
     if (this.data$.value.length === 0) {
       this.load();
     }
@@ -27,11 +26,14 @@ export class UserService implements ReactiveService< User[], UserCommand > {
   process(command: { type: UserCommand.CREATE_REQUEST,payload:User}): void;
   process(command: { type: UserCommand.LOAD_REQUEST,payload:null}): void;
   process(command: { type: UserCommand; payload: unknown; }): void {
-    throw new Error('Method not implemented.');
+    if(command.type === UserCommand.LOAD_REQUEST){
+      this.load()
+    }
   }
 
   private load(){
     this.http.get<User[]>('http://localhost:5050/users').subscribe( (data:User[]) => this.data$.next(data) )
   }
+
 
 }

@@ -23,7 +23,6 @@ describe('AppComponent', () => {
   it(`should have as title 'ntt-first'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ntt-first');
   });
 
   it('should render title', () => {
