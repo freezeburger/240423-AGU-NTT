@@ -3,8 +3,7 @@ import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-feat-user-list',
-  templateUrl: './feat-user-list.component.html',
-  styleUrl: './feat-user-list.component.scss'
+  templateUrl: './feat-user-list.component.html'
 })
 export class FeatUserListComponent {
 
