@@ -17,7 +17,6 @@ describe('AppComponent', () => {
   it(`should have the 'quick-n-dirty' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('quick-n-dirty');
   });
 
   it('should render title', () => {

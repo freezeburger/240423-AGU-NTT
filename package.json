@@ -2,14 +2,16 @@
   "name": "ntt-first",
   "version": "0.0.0",
   "scripts": {
-    "sonar":"sonar-scanner.bat  -Dsonar.projectKey=Test  -Dsonar.sources=./src,./types,./projects/quick-n-dirty  -Dsonar.host.url=http://localhost:9000  -Dsonar.token=sqa_e5c34945d59b1291de72a2439cfaca88ad45f6e2",
+    "sonar-scanner":"sonar-scanner.bat",
+    "sonar":"sonar-scanner.bat  -Dsonar.projectKey=Test  -Dsonar.sources=./src,./types,./projects/quick-n-dirty  -Dsonar.host.url=http://localhost:9000 -Dsonar.exclusions=**/*spec.ts -Dsonar.coverage.exclusions=**/*spec.ts -Dsonar.cpd.exclusions=**/*spec.ts -Dsonar.token=sqa_e5c34945d59b1291de72a2439cfaca88ad45f6e2",
     "ng": "ng",
     "api": "json-server ./api/data.json -p 5050 -w",
     "qnd:start": "ng serve --project=quick-n-dirty",
     "default:start": "ng serve",
     "default:build": "ng build",
     "default:watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --no-watch--code-coverage",
+    "test:dev": "ng test:dev",
     "compodoc:build": "compodoc -p tsconfig.doc.json",
     "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
     "compodoc:serve": "compodoc -s"
