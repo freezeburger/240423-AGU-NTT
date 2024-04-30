@@ -1,4 +1,4 @@
-import { BehaviorSubject, Subject, distinctUntilChanged, tap } from "rxjs";
+import { distinctUntilChanged, tap } from "rxjs";
 import { ReactiveService } from "../../../../types/patterns/reactive-service";
 
 declare global {
@@ -39,7 +39,7 @@ export function RSDevtoolsConnector(constructor: ConstructableReactiveService) {
 
     unsubscribe = this.store.subscribe((message: any) => {
       if (message.type === 'DISPATCH' && message.payload.type === 'JUMP_TO_ACTION') {
-        // (this.data$ as BehaviorSubject<any>).next(message.state)
+        console.log(message.state)
       }
     })
 
